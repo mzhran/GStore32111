@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StoreTransEO"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="STORE_TRANS"
+  AliasName="StoreTransEO"
+  BindingStyle="OracleName"
+  RowClass="com.global.model.bc.entity.base.StoreEntityBase">
+  <Attribute
+    Name="StoreTransId"
+    IsNotNull="true"
+    ColumnName="STORE_TRANS_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="STORE_TRANS"
+    PrimaryKey="true">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="SeqName"
+          Value="STORE_TRANS_SEQ"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StoreId"
+    ColumnName="STORE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="STORE_TRANS"/>
+  <Attribute
+    Name="TransTypeId"
+    ColumnName="TRANS_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="STORE_TRANS"/>
+  <Attribute
+    Name="Notes"
+    Precision="200"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="STORE_TRANS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvId"
+    ColumnName="INV_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="STORE_TRANS"/>
+  <AccessorAttribute
+    Name="Inv"
+    Association="com.global.model.bc.assoc.StoreTransInvFk4ASSOC"
+    AssociationEnd="com.global.model.bc.assoc.StoreTransInvFk4ASSOC.Inv"
+    AssociationOtherEnd="com.global.model.bc.assoc.StoreTransInvFk4ASSOC.StoreTrans"
+    Type="com.global.model.bc.entity.base.StoreEntityBase"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Store"
+    Association="com.global.model.bc.assoc.StoreTransStoreFk1ASSOC"
+    AssociationEnd="com.global.model.bc.assoc.StoreTransStoreFk1ASSOC.Store"
+    AssociationOtherEnd="com.global.model.bc.assoc.StoreTransStoreFk1ASSOC.StoreTrans"
+    Type="com.global.model.bc.entity.base.StoreEntityBase"
+    IsUpdateable="true"/>
+  <Key
+    Name="StoreTransPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="STORE_TRANS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.StoreTransEO.StoreTransId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="StoreTransInvFk4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="INV_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="STORE_TRANS_INV_FK4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.StoreTransEO.InvId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="StoreTransStoreFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="STORE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="STORE_TRANS_STORE_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.StoreTransEO.StoreId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="StoreTransTransTypeFk3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TRANS_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="STORE_TRANS_TRANS_TYPE_FK3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.StoreTransEO.TransTypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

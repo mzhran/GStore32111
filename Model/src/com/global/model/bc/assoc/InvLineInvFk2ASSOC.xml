@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvLineInvFk2ASSOC"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Inv"
+    Cardinality="1"
+    Source="true"
+    Owner="com.global.model.bc.entity.InvEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Inv"/>
+      <Attr Name="_foreignKey" Value="com.global.model.bc.entity.InvEO.InvPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.InvEO.InvId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="InvLine"
+    Cardinality="-1"
+    Owner="com.global.model.bc.entity.InvLineEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InvLine"/>
+      <Attr Name="_foreignKey" Value="com.global.model.bc.entity.InvLineEO.InvLineInvFk2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.InvLineEO.InvId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

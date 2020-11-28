@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StoreTransVO"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="StoreVO"
+    ViewObjectName="com.global.model.bc.view.StoreVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TransTypeROVO"
+    ViewObjectName="com.global.model.bc.view.TransTypeROVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InvVO"
+    ViewObjectName="com.global.model.bc.view.InvVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_StoreId"
+    ListVOName="StoreVO"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StoreId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreId"/>
+      <Item Value="StoreName"/>
+      <Item Value="Notes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TransTypeId"
+    ListVOName="TransTypeROVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransTypeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TransTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TransTypeName2"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InvId"
+    ListVOName="InvVO"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InvId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InvId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InvId"/>
+      <Item Value="InvNum"/>
+      <Item Value="BpName"/>
+      <Item Value="InvDate"/>
+      <Item Value="InvTotal"/>
+      <Item Value="TransTypeId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="StoreTransEO"
+    Entity="com.global.model.bc.entity.StoreTransEO"/>
+  <ViewAttribute
+    Name="StoreTransId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StoreTransId"
+    EntityUsage="StoreTransEO"
+    AliasName="STORE_TRANS_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.global.model.bc.view.StoreTransVO.StoreTransId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StoreId"
+    PrecisionRule="true"
+    EntityAttrName="StoreId"
+    EntityUsage="StoreTransEO"
+    AliasName="STORE_ID"
+    LOVName="LOV_StoreId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <LABEL
+          ResId="com.global.model.bc.view.StoreTransVO.StoreId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransTypeId"
+    PrecisionRule="true"
+    EntityAttrName="TransTypeId"
+    EntityUsage="StoreTransEO"
+    AliasName="TRANS_TYPE_ID"
+    LOVName="LOV_TransTypeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.global.model.bc.view.StoreTransVO.TransTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="StoreTransEO"
+    AliasName="NOTES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.global.model.bc.view.StoreTransVO.Notes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvId"
+    PrecisionRule="true"
+    EntityAttrName="InvId"
+    EntityUsage="StoreTransEO"
+    AliasName="INV_ID"
+    LOVName="LOV_InvId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <LABEL
+          ResId="com.global.model.bc.view.StoreTransVO.InvId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.global.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

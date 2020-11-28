@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>StoreTemplate</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>menu</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>Body</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelSplitter splitterPosition="123" orientation="vertical" id="pt_ps3">
+        <f:facet name="first">
+            <af:panelGroupLayout id="pt_pgl1">
+                <af:spacer width="100" height="10" id="pt_s1"/>
+                <af:image source="#{resource['images:222222-indesign-logo-01.png']}" shortDesc="logo" id="pt_i1"/>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelSplitter splitterPosition="31" orientation="vertical" positionedFromEnd="true" id="pt_ps1">
+                <f:facet name="first">
+                    <af:panelSplitter splitterPosition="280" id="pt_ps2">
+                        <f:facet name="first">
+                            <af:facetRef facetName="menu"/>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:facetRef facetName="Body"/>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:facet name="second">
+                    <af:outputText value="Copy Rights InDesign Egypt @ 2020" id="pt_ot1"/>
+                </f:facet>
+            </af:panelSplitter>
+        </f:facet>
+    </af:panelSplitter>
+</af:pageTemplateDef>

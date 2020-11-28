@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion id="pa1" discloseMany="true">
+    <af:showDetailItem id="CatPane1" text="تصنيف المنتجات">
+      <af:panelSplitter id="ps1" inlineStyle="width:inherit;" splitterPosition="459">
+        <f:facet name="first">
+          <af:panelCollection id="pc1">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <af:table value="#{bindings.Cat1.collectionModel}" var="row" rows="#{bindings.Cat1.rangeSize}"
+                      emptyText="#{bindings.Cat1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Cat1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Cat1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Cat1.rangeSize}" filterModel="#{bindings.Cat1Query.queryDescriptor}"
+                      filterVisible="true" queryListener="#{bindings.Cat1Query.processQuery}" varStatus="vs" id="t1"
+                      partialTriggers=":::b1 :::b2 :::b3 :::b4">
+              <af:column sortProperty="#{bindings.Cat1.hints.CatId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Cat1.hints.CatId.label}" id="c1">
+                <af:outputText value="#{row.CatId}" shortDesc="#{bindings.Cat1.hints.CatId.tooltip}" id="ot1">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.Cat1.hints.CatId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cat1.hints.CatName.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Cat1.hints.CatName.label}" id="c2">
+                <af:outputText value="#{row.CatName}" shortDesc="#{bindings.Cat1.hints.CatName.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cat1.hints.Notes.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Cat1.hints.Notes.label}" id="c3">
+                <af:outputText value="#{row.Notes}" shortDesc="#{bindings.Cat1.hints.Notes.tooltip}" id="ot3"/>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="#{bindings.CatId.hints.label}" id="plam1">
+              <af:outputText value="#{bindings.CatId.inputValue}" shortDesc="#{bindings.CatId.hints.tooltip}" id="ot4">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.CatId.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:inputText value="#{bindings.CatName.inputValue}" label="#{bindings.CatName.hints.label}"
+                          required="#{bindings.CatName.hints.mandatory}"
+                          columns="#{bindings.CatName.hints.displayWidth}"
+                          maximumLength="#{bindings.CatName.hints.precision}"
+                          shortDesc="#{bindings.CatName.hints.tooltip}" id="it1">
+              <f:validator binding="#{bindings.CatName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                          required="#{bindings.Notes.hints.mandatory}" columns="#{bindings.Notes.hints.displayWidth}"
+                          maximumLength="#{bindings.Notes.hints.precision}" shortDesc="#{bindings.Notes.hints.tooltip}"
+                          id="it2">
+              <f:validator binding="#{bindings.Notes.validator}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="width:418px; height:59px;">
+                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                  <af:button actionListener="#{bindings.First.execute}" text="First"
+                             disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                  <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                             disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                  <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                             partialSubmit="true" id="b3"/>
+                  <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                             partialSubmit="true" id="b4"/>
+                </af:panelGroupLayout>
+                <af:button text="Submit" id="b5"/>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:panelFormLayout>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem id="AllProdPane3" text="جميع المنتجات">
+      <af:showDetailItem id="ProdPane2" text="المنتجات"/>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</ui:composition>

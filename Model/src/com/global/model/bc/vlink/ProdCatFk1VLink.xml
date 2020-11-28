@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProdCatFk1VLink"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  EntityAssociation="com.global.model.bc.assoc.ProdCatFk1ASSOC">
+  <ViewLinkDefEnd
+    Name="Cat"
+    Cardinality="1"
+    Source="true"
+    Owner="com.global.model.bc.view.CatVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="Cat"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.view.CatVO.CatId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Prod"
+    Cardinality="-1"
+    Owner="com.global.model.bc.view.ProdVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="Prod"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.view.ProdVO.CatId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

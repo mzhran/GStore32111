@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="Cat_ProdPageDef"
+                Package="com.global.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Cat1" RangeSize="25" DataControl="AppModuleAMDataControl" id="Cat1Iterator"/>
+    <searchRegion Binds="Cat1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Cat1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Cat1Iterator" id="Cat1">
+      <nodeDefinition DefName="com.global.model.bc.view.CatVO" Name="Cat10">
+        <AttrNames>
+          <Item Value="CatId"/>
+          <Item Value="CatName"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Cat1Iterator" id="CatId">
+      <AttrNames>
+        <Item Value="CatId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Cat1Iterator" id="CatName">
+      <AttrNames>
+        <Item Value="CatName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Cat1Iterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Cat1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Cat1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Cat1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Cat1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

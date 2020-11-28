@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="com.global.model.bc.am.AppModuleAM">
+    <AppModuleConfig name="AppModuleAMLocal" jbo.project="com.global.model.Model"
+                     ApplicationName="com.global.model.bc.am.AppModuleAM" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/gstore3DS"/>
+      <Security AppModuleJndiName="com.global.model.bc.am.AppModuleAM"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AppModuleAMShared" jbo.project="com.global.model.Model"
+                     ApplicationName="com.global.model.bc.am.AppModuleAM" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/gstore3DS"/>
+      <Security AppModuleJndiName="com.global.model.bc.am.AppModuleAM"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

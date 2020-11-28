@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProdCatFk1ASSOC"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Cat"
+    Cardinality="1"
+    Source="true"
+    Owner="com.global.model.bc.entity.CatEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Cat"/>
+      <Attr Name="_foreignKey" Value="com.global.model.bc.entity.CatEO.CatPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.CatEO.CatId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Prod"
+    Cardinality="-1"
+    Owner="com.global.model.bc.entity.ProdEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Prod"/>
+      <Attr Name="_foreignKey" Value="com.global.model.bc.entity.ProdEO.ProdCatFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.global.model.bc.entity.ProdEO.CatId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

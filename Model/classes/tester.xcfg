@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.global.model.bc.am.AppModuleAM">
+      <AppModuleConfig name="1760F6E5812" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/gstore3DS" ApplicationName="com.global.model.bc.am.AppModuleAM" jbo.project="com.global.model.Model" BC4JConfigName="AppModuleAMLocal" JDBCName="gstore3" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Database JDBCDataSource="java:comp/env/jdbc/gstore3DS" jbo.SQLBuilder="Oracle" jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.global.model.bc.am.AppModuleAM"/>
+         <Tester testerLocales="ar,en,fr" FullProxyInterfaceName="com.global.model.bc.am.common.AppModuleAM"/>
+         <Custom ns0:tester_classloader_enabled="true" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>
